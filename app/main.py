@@ -28,5 +28,6 @@ def main():
     logger.info("Application terminée")
 
 if __name__ == "__main__":
+    print('Hello world !')
     import streamlit as st
     main()
