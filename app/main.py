@@ -4,6 +4,7 @@ from src.eda import eda
 from src.model import predict, train_model
 from src.utils import setup_logging
 
+logger.add("./logs/app.log")
 
 def main():
     logger.info("Démarrage de l'application")
