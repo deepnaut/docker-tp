@@ -5,7 +5,7 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import streamlit as st
 from loguru import logger
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
@@ -14,7 +14,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 def train_model(
     df: pd.DataFrame,
 ) -> Tuple[
-    Optional[RandomForestClassifier], Optional[StandardScaler], Optional[LabelEncoder]
+    Optional[LogisticRegression], Optional[StandardScaler], Optional[LabelEncoder]
 ]:
     """
     Entraîne un modèle de classification et affiche les résultats.
@@ -54,7 +54,7 @@ def train_model(
     )
 
     # Entraînement du modèle
-    model = RandomForestClassifier(random_state=42)
+    model = LogisticRegression(random_state=42, C=1e6, max_iter=1000)
     model.fit(X_train, y_train)
 
     # Prédictions
