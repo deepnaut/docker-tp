@@ -1,5 +1,6 @@
 from typing import Any, Optional, Tuple
 
+import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.figure_factory as ff
@@ -54,7 +55,7 @@ def train_model(
     )
 
     # Entraînement du modèle
-    model = RandomForestClassifier(random_state=42)
+    model = RandomForestClassifier(random_state=42, C=1e6, max_iter=1000)
     model.fit(X_train, y_train)
 
     # Prédictions
